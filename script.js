@@ -15,6 +15,7 @@ function addTask(){
 
     }
     inputBox.value = "";
+    saveData();
 }
 
 listCointainer.addEventListener("click", function(e){
@@ -25,3 +26,11 @@ listCointainer.addEventListener("click", function(e){
         e.target.parentElement.remove();
     }
 }, false);
+
+function saveData(){
+    localStorage.setItem("data",listCointainer.innerHTML);
+}
+function showTask(){
+    listCointainer.innerHTML = localStorage.getItem("data");
+}
+showTask();
